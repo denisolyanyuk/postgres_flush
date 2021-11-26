@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: postgress_flush
+    image: postgres:13.3
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "pass"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./volumes/data:/var/lib/postgresql/data
+      - ./volumes/postgres.conf:/etc/postgresql/postgresql.conf
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+
+
+
+
+
+
+
+
